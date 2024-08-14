@@ -1,0 +1,33 @@
+{% extends "device_pages/layout.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DEVICE TYPE</th>
+            <th>PROTOCOL</th>
+            <th>COMMANDS Numarası</th>
+            <th>OPERATIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for device in devices %}
+        <tr>
+            <td>{{ device.id }}</td>
+            <td>{{ device.deviceType }}</td>
+            <td>{{ device.protocol }}</td>
+            <td>{{ device.command }}</td>
+            <td>
+                <a href="{{ url_for('device_bp.update_device', id=device.id) }}"
+                    class="btn btn-warning btn-sm">UPDATE</a>
+                <a href="{{ url_for('device_bp.delete_device', id=device.id) }}"
+                    class="btn btn-danger btn-sm">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('device_bp.add_device') }}" class="btn btn-primary mb-3">ADD</a>
+
+{% endblock %}

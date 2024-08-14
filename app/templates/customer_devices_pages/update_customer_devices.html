@@ -1,0 +1,31 @@
+{% extends "customer_devices_pages/layout.html" %}
+
+{% block title %}Müşteri Güncelle{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" name="id" value="{{ customer_device.id }}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="customerId">CUSTOMER ID</label>
+        <input type="text" class="form-control" id="customerId" name="customerId"
+            value="{{ customer_device.customerId }}" required>
+    </div>
+    <div class="form-group">
+        <label for="deviceTypeId">DEVICE TYPE ID</label>
+        <input type="text" class="form-control" id="deviceTypeId" name="deviceTypeId"
+            value="{{ customer_device.deviceTypeId }}" required>
+    </div>
+    <div class="form-group">
+        <label for="port">PORT</label>
+        <input type="text" class="form-control" id="port" name="port" value="{{ customer_device.port }}" required>
+    </div>
+    <div class="form-group">
+        <label for="ipHost">IP HOST</label>
+        <input type="text" class="form-control" id="ipHost" name="ipHost" value="{{ customer_device.ipHost }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>
+{% endblock %}

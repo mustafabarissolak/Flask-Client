@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Customer Device {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <ul>
+        <li><a href="{{ url_for('device_bp.index') }}">DEVICES</a></li>
+        <li><a href="{{ url_for('customer_bp.index') }}">CUSTOMERS</a></li>
+        <li><a href="{{ url_for('customer_devices_bp.index') }}">CUSTOMER DEVICES</a></li>
+        <li style="float:right"><a class="active" href="{{ url_for('home_bp.home') }}">Home</a></li>
+    </ul>
+    <div class="container">
+        <header class="my-4">
+            <h1 style="text-align: center;"> CUSTOMER DEVICE</h1>
+        </header>
+
+        {% block content %}
+        <!-- Sayfa içeriği buraya gelecek -->
+        {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

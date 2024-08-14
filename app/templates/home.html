@@ -1,0 +1,27 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HOME{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <ul>
+        <li><a href="{{ url_for('device_bp.index') }}">DEVICES</a></li>
+        <li><a href="{{ url_for('customer_bp.index') }}">CUSTOMERS</a></li>
+        <li><a href="{{ url_for('customer_devices_bp.index') }}">CUSTOMER DEVICES</a></li>
+        <li style="float:right"><a class="active" href="{{ url_for('home_bp.home') }}">Home</a></li>
+    </ul>
+    <main>
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock %}
+    </main>
+</body>
+
+</html>

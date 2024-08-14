@@ -1,0 +1,37 @@
+{% extends "customer_devices_pages/layout.html" %}
+
+{% block title %}CUSTOMER TABLE{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>CUSTOMER ID</th>
+            <th>DEVICE TYPE ID</th>
+            <th>PORT</th>
+            <th>IP HOST</th>
+            <th>OPERATIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer_device in customer_devices %}
+        <tr>
+            <td>{{ customer_device.id }}</td>
+            <td>{{ customer_device.customerId }}</td>
+            <td>{{ customer_device.deviceTypeId }}</td>
+            <td>{{ customer_device.port }}</td>
+            <td>{{ customer_device.ipHost }}</td>
+            <td>
+                <a href="{{ url_for('customer_devices_bp.update_customer_devices', id=customer_device.id) }}"
+                    class="btn btn-warning btn-sm">UPDATE</a>
+                <a href="{{ url_for('customer_devices_bp.delete_customer_devices', id=customer_device.id) }}"
+                    class="btn btn-danger btn-sm">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('customer_devices_bp.add_customer_devices') }}" class="btn btn-primary mb-3" >ADD</a>
+
+{% endblock %}

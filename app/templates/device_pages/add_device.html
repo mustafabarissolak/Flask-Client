@@ -1,0 +1,19 @@
+{% extends "device_pages/layout.html" %}
+
+{% block content %}
+<form method="POST">
+    <div class="form-group">
+        <label for="deviceType">DEVICE TYPE</label>
+        <input type="text" class="form-control" id="deviceType" name="deviceType" required>
+    </div>
+    <div class="form-group">
+        <label for="protocol">PROTOCOL</label>
+        <input type="text" class="form-control" id="protocol" name="protocol" required>
+    </div>
+    <div class="form-group">
+        <label for="command">COMMANDS</label>
+        <input type="text" class="form-control" id="command" name="command" required>
+    </div>
+    <button type="submit" class="btn btn-primary">ADD</button>
+</form>
+{% endblock %}

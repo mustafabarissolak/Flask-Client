@@ -1,0 +1,26 @@
+{% extends "device_pages/layout.html" %}
+
+{% block content %}
+<h1 class="mt-4">EDIT DEVICE </h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" name="id" value="{{ device.id }}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="deviceType">DEVICE TYPE</label>
+        <input type="text" class="form-control" id="deviceType" name="deviceType" value="{{ device.deviceType }}"
+            required>
+    </div>
+    <div class="form-group">
+        <label for="protocol">PROTOCOL</label>
+        <input type="text" class="form-control" id="protocol" name="protocol" value="{{ device.protocol }}" required>
+    </div>
+    <div class="form-group">
+        <label for="command">COMMANDS</label>
+        <input type="ecommand" class="form-control" id="command" name="command" value="{{ device.command }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">SAVE</button>
+</form>
+{% endblock %}

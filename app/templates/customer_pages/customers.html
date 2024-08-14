@@ -1,0 +1,39 @@
+{% extends "customer_pages/layout.html" %}
+
+{% block title %}CUSTOMER TABLE{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>E-MAIL</th>
+            <th>PHONE NUMBER</th>
+            <th>ADDRESS</th>
+            <th>OPERATIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.mail }}</td>
+            <td>{{ customer.phoneNumber }}</td>
+            <td>{{ customer.address }}</td>
+            <td>
+                <a href="{{ url_for('customer_bp.update_customer', id=customer.id) }}"
+                    class="btn btn-warning btn-sm">UPDATE</a>
+                <a href="{{ url_for('customer_bp.delete_customer', id=customer.id) }}"
+                    class="btn btn-danger btn-sm">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+<a href="{{ url_for('customer_bp.add_customer') }}" class="btn btn-primary mb-3" >ADD</a>
+{% endblock %}
